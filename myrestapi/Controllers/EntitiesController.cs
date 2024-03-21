@@ -8,7 +8,45 @@ using System.Linq;
 [ApiController]
 public class EntitiesController : ControllerBase
 {
-    private static List<Entity> _mockDatabase = new List<Entity>();
+    private static List<Entity> _mockDatabase = new List<Entity>
+    {
+        new Entity
+        {
+            Id = "1",
+            Names = new List<Name>
+            {
+                new Name { FirstName = "John", MiddleName = "Doe", Surname = "Smith" }
+            },
+            Addresses = new List<Address>
+            {
+                new Address { AddressLine = "123 Main St", City = "Example City", Country = "USA" }
+            },
+            Dates = new List<Date>
+            {
+                new Date { DateType = "Birth", DateValue = new DateTime(1980, 1, 1) }
+            },
+            Deceased = false,
+            Gender = "Male"
+        },
+        new Entity
+        {
+            Id = "2",
+            Names = new List<Name>
+            {
+                new Name { FirstName = "Jane", MiddleName = "Doe", Surname = "Smith" }
+            },
+            Addresses = new List<Address>
+            {
+                new Address { AddressLine = "456 Oak St", City = "Another City", Country = "Canada" }
+            },
+            Dates = new List<Date>
+            {
+                new Date { DateType = "Birth", DateValue = new DateTime(1975, 5, 10) }
+            },
+            Deceased = true,
+            Gender = "Female"
+        }
+    };
 
     // GET api/entities
     [HttpGet]
